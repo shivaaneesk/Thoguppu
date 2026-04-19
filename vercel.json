@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/process.py"
+      "destination": "/api/index.py"
     }
   ]
 }
