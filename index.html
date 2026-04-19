@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoguppu | Audio Summarizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <div class="background-blobs">
+        <div class="blob shape-1"></div>
+        <div class="blob shape-2"></div>
+    </div>
+    
+    <div class="container glass-panel animate-fade-in">
+        <header>
+            <h1>Thoguppu</h1>
+            <button id="theme-switcher">Toggle Theme</button>
+        </header>
+        
+        <main>
+            <div class="upload-section glass-card animate-slide-up">
+                <h2>Upload Your Audio File</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <label for="audio_file" class="custom-file-upload">
+                        Choose File
+                    </label>
+                    <input type="file" id="audio_file" name="audio_file" accept="audio/*" style="display: none;">
+                    <span id="file-name" class="file-name-display">No file chosen</span>
+                    <p class="file-limit-note">Supported formats: audio/* &nbsp;|&nbsp; Max file size: 25 MB</p>
+                    <button type="submit" class="primary-btn">Process Audio</button>
+                </form>
+            </div>
+
+            <div id="loading" class="hidden">
+                 <div class="loader-container glass-card">
+                     <div class="spinner"></div>
+                     <p id="loading-status">Analyzing & Summarizing... this may take a minute.</p>
+                 </div>
+            </div>
+
+            <div id="results" class="hidden">
+                <div class="result-box glass-card stagger-1">
+                    <h2>Transcript</h2>
+                    <p id="transcript-text" class="content-text"></p>
+                </div>
+                <div class="result-box glass-card stagger-2">
+                    <h2>AI Summary</h2>
+                    <p id="summary-text" class="content-text"></p>
+                </div>
+            </div>
+            
+            <div id="error" class="hidden glass-card error-card">
+                <p id="error-text"></p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

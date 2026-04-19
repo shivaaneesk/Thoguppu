@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const file = fileInput.files[0];
+        const maxSizeInBytes = 25 * 1024 * 1024; // 25 MB
+        
+        if (file.size > maxSizeInBytes) {
+            alert("The selected file exceeds the 25 MB size limit! Please select a smaller file.");
+            return;
+        }
+
         // 1. Reset UI
         document.getElementById('results').classList.add('hidden');
         document.getElementById('error').classList.add('hidden');
@@ -48,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // 3. Send to Backend
-            const response = await fetch('/process', {
+            const response = await fetch('/api/process', {
                 method: 'POST',
                 body: formData
             });

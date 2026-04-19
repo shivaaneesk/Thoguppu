@@ -1,7 +1,3 @@
 Flask==3.0.0
-transformers
-torch
-sentencepiece
-accelerate
-torchaudio
-gunicorn
+groq
+werkzeug
